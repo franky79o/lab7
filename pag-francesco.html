@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CV - Avram Francesco</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="pag1-descriere">
+        <p class="nume1">Nume: Avram Francesco</p>
+        <p class="email1">Email: avramfrancesco77@gmail.com</p>
+        <p id="anul-nasterii">Anul nașterii: 2006</p>
+        <img class="img1" src="./poza-francesco.jpg" alt="Profil">
+        <p class="citat1">Citat: “Cine se trezeste de dimineata, adoarme la cursuri..”</p>
+        </div>
+        <div class="pag1-inf">
+        <p class="discipline1">Discipline:</p>
+        <table class="table1">
+            <tr>
+                <th>Disciplina</th>
+                <th>Anul de studiu</th>
+                <th>Descriere</th>
+            </tr>
+            <tr>
+                <td>Programarea calculatoarelor si limbaje de programare I</td>
+                <td>I</td>
+                <td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/TstRo/04a.pdf">Descriere</a></td>
+            </tr>
+            <tr>
+                <td>Componente si circuite pasive</td>
+                <td>I</td>
+                <td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/TstRo/05a.pdf">Descriere</a></td>
+            </tr>
+            <tr>
+                <td>Informatica aplicata</td>
+                <td>I</td>
+                <td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/TstRo/06.pdf">Descriere</a></td>
+            </tr>
+        </table>
+        <p class="hobbyuri1">Hobby-uri:</p>
+        <ul class="lista1">
+            <li>Gaming</li>
+            <li>Muzica</li>
+            <li>Desen</li>
+        </ul>
+    </div>
+
+    <div class="pag1-email">
+        <label class="text-email" for="email-input">Introduceți o adresa de e-mail:<input type="text" id="email-input" placeholder="e-mail"></label>
+        <p id="email-error" style="color: red; display: none;">E-mail invalid! Asigurați-vă că adresa conține caracterul @.</p>
+    </div>
+
+    <div class="pag1-footer">
+        <p class="link-cuprins"><a href="./cuprins-agenda.html">Cuprins</a></p>
+        <p class="pagini">Pagina 1 <a href="./pag-2.html">2</a> <a href="./pag-3.html">3</a></p>
+    </div>
+
+    <button id="alta-viata">Alta viata</button>
+
+    <script>
+        document.getElementById("alta-viata").addEventListener("click", function() {
+            
+            document.querySelector(".nume1").textContent = "Funcție: Dezvoltator Software la Riot Games";
+
+            const hobbyuri = document.querySelector(".lista1");
+            hobbyuri.innerHTML = `
+                <li>Publicare articol în reviste academice</li>
+                <li>Participare la hackathoane internaționale</li>
+                <li>Dezvoltarea unui proiect open-source</li>
+            `;
+
+            const img = document.querySelector(".img1");
+            img.src = "./imagine-noua.jpg";
+            img.alt = "Profil nou";
+            img.style.opacity = "0.9";
+            img.style.border = "5px solid black";
+
+            document.body.style.backgroundColor = "#b872ed";
+            document.body.style.color = "maroon";
+            document.querySelectorAll("a").forEach(a => a.style.color = "#ffa500");
+        });
+
+        document.getElementById("anul-nasterii").addEventListener("mouseover", function() {
+            const birthYear = 2006;
+            const currentYear = new Date().getFullYear();
+            const age = currentYear - birthYear;
+            this.textContent = `Vârsta: ${age} ani`;
+        });
+
+        document.getElementById("email-input").addEventListener("input", function() {
+            const email = this.value;
+            const errorElement = document.getElementById("email-error");
+
+            if (email.includes("@")) {
+                errorElement.style.display = "none";
+            } else {
+                errorElement.style.display = "block";
+            }
+        });
+    </script>
+    </body>
+</html>

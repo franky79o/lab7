@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cuprins - Agenda</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 class="grupa">Grupa 2114: </h1>
+        <p class="p1"><a href="./pag-francesco.html">Avram Francesco</a></p>
+        <p class="p2"><a href="./pag-2.html">Giurgiu Oana</a></p>
+        <p class="p3"><a href="./pag-3.html">Chirilă Alexandra-Marinela</a></p>
+
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="./poza-francesco.jpg" alt="Avram Francesco">
+            <a href="./pag-francesco.html">Avram Francesco</a>
+        </div>
+
+        <div class="slide">
+            <img src="./poza-oana.jpg" alt="Giurgiu Oana">
+            <a href="./pag-2.html">Giurgiu Oana</a>
+        </div>
+
+        <div class="slide">
+            <img src="./poza-alexandra.jpg" alt="Chirilă Alexandra-Marinela">
+            <a href="./pag-3.html">Chirilă Alexandra-Marinela</a>
+        </div>
+    </div>
+
+    <a href="https://www.utcluj.ro"><img class="utcn-logo" src="./utcn-logo.jpg"></a>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function startSlideshow() {
+            showSlide(currentSlideIndex);
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            setTimeout(startSlideshow, 3000);
+        }
+
+        window.onload = startSlideshow;
+    </script>
+    </body>
+</html>
